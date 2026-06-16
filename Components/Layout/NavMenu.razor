@@ -16,8 +16,6 @@
                 @((MarkupString)item.Name)
                 <Svg Icon="item.Icon"/>
             </NavLink>
-
-            @* <a class="hidden font-medium text-gray-100 sm:block   @(Nm.Uri.EndsWith(item.link)?"":"") " href="@item.link">@item.name</a> *@
         }
         <button id="toggle-button" aria-label="Toggle Menu" class="sm:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-8 w-8 text-gray-100">
@@ -62,7 +60,7 @@
     [
         new("Home", ""),
         new("Tags", "tags"),
-        new("", WebsiteKeys.GitHubRepo, Svg.Icons.Github)
+        new("", WebsiteKeys.GitHubTemplateRepo, Svg.Icons.Github)
     ];
 
 
