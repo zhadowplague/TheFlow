@@ -1,17 +1,14 @@
 ---
 title: First post
-lead: Sample post so you can see how it works
-published: 2023-11-04
-tags: [tag-001, another-sample-tag]
+lead: Writing blog posts using Visual Studio
+published: 2026-06-17
+tags: [fluff]
 authors:
-    - name: "Jan Tesař"
-      gitHubUserName: "tesar-tech"
-      xUserName: "tesar_tech"
+    - name: "CodeBin"
+      gitHubUserName: "zhadowplague"
 ---
 
-Hi, this is a sample post with front matter (YAML) metadata. You can use Markdown to write your content.
-Also here is a sample image:
-
-![programming bug](media/programming_bug.jpg)
+Using Blazor to compile a static website sounds like a fun concept. <br />
+If all web pages were static content like before, pages would load faster, and I could go back to disabling JavaScript to ensure my browser does not execute anything I don’t accept.
 
 

@@ -63,7 +63,7 @@ public static class WebsiteKeys
 {
     public const string GitHubTemplateRepo = "https://github.com/BlazorStatic/BlazorStaticMinimalBlog";
     public const string GitHubRepo = "https://github.com/zhadowplague/TheFlow";
-    public const string Title = "BlazorStatic Minimal Blog";
+    public const string Title = "The Flow";
     public const string BlogPostStorageAddress = $"{GitHubRepo}/tree/main/Content/Blog";
 #if DEBUG
     public const string Endpoint = "/";

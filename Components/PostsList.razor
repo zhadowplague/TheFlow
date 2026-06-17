@@ -10,11 +10,6 @@
         <li class="py-12">
             <article>
                 <div class="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
-
-                    <dl class="space-y-2">
-                        <DateRow Published="post.FrontMatter.Published" Updated="post.FrontMatter.Updated" />
-                    </dl>
-
                     <div class="space-y-5 xl:col-span-3">
                         <div class="space-y-6">
                             <div>
@@ -22,6 +17,7 @@
                                     <a class="text-gray-100"
                                         href="@blazorStaticContentService.Options.PageUrl/@(post.Url)">@post.FrontMatter.Title</a>
                                 </h2>
+                                <DateRow Published="post.FrontMatter.Published" Updated="post.FrontMatter.Updated" />
                                 <TagsComponent ClassPlus="mt-2" Tags="post.FrontMatter.Tags" />
                             </div>
                             <div class="prose max-w-none text-gray-400">

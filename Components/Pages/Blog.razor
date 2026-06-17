@@ -9,10 +9,9 @@
 @* No filename -> show latest posts *@
 @if (string.IsNullOrWhiteSpace(FileName))
 {
-    <div class="divide-y divide-gray-700">
+    <div class="divide-y divide-gray-700 xl:w-[56rem]">
         <div class="space-y-2 pb-8 pt-6 md:space-y-5">
-            <H1>Latest</H1>
-            <p class="text-lg leading-7 text-gray-400 prose prose-invert">Ello</p>
+            <p class="text-lg leading-7 text-gray-400 prose prose-invert">Latest posts</p>
         </div>
 
         <PostsList />
