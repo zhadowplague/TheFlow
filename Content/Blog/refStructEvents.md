@@ -2,7 +2,7 @@
 title: Borrowed data as an event payload
 lead: Restricting access to exposed borrowed data
 published: 2026-06-26
-tags: [C#, EventAggregator, ref struct]
+tags: [C#, EventAggregator]
 authors:
     - name: "CodeBin"
       gitHubUserName: "zhadowplague"
