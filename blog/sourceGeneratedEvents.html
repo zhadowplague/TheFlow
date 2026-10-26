@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/TheFlow/" />
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+
+    </head>
+
+<body class="bg-neutral-800 font-sans text-gray-200"><div class="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-7xl xl:px-0 "><div class="flex h-screen flex-col justify-between"><header class="flex items-center justify-between py-10"><div><a href><h1 class="text-2xl font-semibold text-primary-800">The Flow</h1></a></div>
+    <div class="flex items-center space-x-4 leading-5 sm:space-x-6"><a href="" class="font-medium text-gray-100">Home
+                </a><a href="tags" class="font-medium text-gray-100">Tags
+                </a><a href="https://github.com/BlazorStatic/BlazorStaticMinimalBlog" class="font-medium text-gray-100">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="hover:text-primary-400 h-6 w-6 fill-current text-gray-200"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a></div></header>
+
+        <main class="ml-auto mr-auto mb-auto"><article><div class="xl:divide-y  xl:divide-gray-700"><header class="pt-6 xl:pb-6"><div class="space-y-1 text-center"><dl class="space-y-2"><dd class="text-base font-medium leading-6 text-gray-400"><time datetime="2026-10-26T00:00:00.000">October 26, 2026</time></dd></dl>
+
+                <h1 class="font-garamond md:leading-14 text-3xl font-extrabold leading-9 tracking-tight text-primary-700 sm:text-4xl sm:leading-10 md:text-6xl">Source-generated event aggregation through interfaces</h1></div></header>
+        <div class="grid-rows-[auto_1fr] divide-y  pb-8 divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0"><dl class="pb-10 pt-6 xl:border-b  xl:pt-11 xl:border-gray-700"><dt class="sr-only">Authors</dt>
+                <dd><ul class="flex flex-wrap justify-center gap-4 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8"><li class="flex items-center space-x-2"><dl class="whitespace-nowrap text-sm font-medium leading-5"><dt class="sr-only">Name</dt>
+                                        <dd class="text-gray-900 dark:text-gray-100 flex gap-1 items-center">CodeBin<a target="_blank" rel="noopener noreferrer" href="https://github.com/zhadowplague" class="flex gap-1 items-center text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="hover:text-primary-400 w-4 h-4 fill-current text-gray-200"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a></dd></dl></li></ul></dd></dl>
+            <div class="divide-y  divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0"><div class="prose prose-invert max-w-none pb-8 pt-10"><p>A common pattern for using an event aggregator looks something like this:</p>
+<pre><code class="language-csharp">public class Consumer : IDisposable
+{
+	IEventAggregator _agg;
+	public Consumer(IEventAggregator agg)
+	{
+		_agg = agg;
+		_agg.Subscribe&lt;Message1&gt;(OnMessage);
+		_agg.Subscribe&lt;Message2&gt;(OnMessage);
+	}
+
+	private void OnMessage(Message1 msg) 
+	{
+
+	}
+	
+	private void OnMessage(Message2 msg) 
+	{
+
+	}
+
+	public void Dispose()
+	{
+		_agg.Unsubscribe&lt;Message1&gt;(OnMessage)
+		_agg.Unsubscribe&lt;Message2&gt;(OnMessage)
+	}
+}
+</code></pre>
+<p>Problems with this solution:
+I don't like having to use classes as payloads.
+I don't want to write a subscribe and unsubscribe for each individual event.
+I want to be able to use ref structs and avoid reflection invocations.</p>
+<p>Let me show you an alternative that solves these issues using a source generator:</p>
+<pre><code class="language-csharp">public class Consumer : IReceiver&lt;Message1&gt;, IReceiver&lt;Message2&gt;, IDispose
+{
+	IEventAggregator _agg;
+	public Consumer(IEventAggregator agg)
+	{
+		_agg = agg;
+		this.ListenToZEvents(agg);
+	}
+
+	internal void OnEvent(Message1 msg)
+	{
+
+	}
+
+	internal void OnEvent(Message2 msg)
+	{
+
+	}
+
+	public void Dispose()
+	{
+		this.FreeZEvents(_agg);
+	}
+}
+</code></pre>
+<p>The generated source code will look like this:</p>
+<pre><code class="language-csharp">public static class ConsumerExtensions
+{
+	public static void ListenToZEvents(this Consumer target, IEventAggregator bus)
+	{
+		bus.Listen&lt;Message1&gt;(target);
+		bus.Listen&lt;Message2&gt;(target);
+	}
+	public static void FreeZEvents(this Consumer target, IEventAggregator bus)
+	{
+		bus.Free&lt;Message1&gt;(target);
+		bus.Free&lt;Message2&gt;(target);
+	}
+}
+</code></pre>
+<p>You could also go a step further and use weak references in your EventAggregator to remove even more boilerplate:</p>
+<pre><code class="language-csharp">public class Consumer : IReceiver&lt;Message1&gt;, IReceiver&lt;Message2&gt;
+{
+	public Consumer(IEventAggregator agg)
+	{
+		_agg = agg;
+		this.ListenToZEvents(agg);
+	}
+
+	internal void OnEvent(Message1 msg)
+	{
+
+	}
+
+	internal void OnEvent(Message2 msg)
+	{
+
+	}
+}
+</code></pre>
+<p>However, this means you must ensure the class returns early in an event receiver when it is supposed to be disposed.</p>
+<p>The source generator for this example is published as an open-source NuGet package at: <a href="https://github.com/zhadowplague/ZEventAggregator">https://github.com/zhadowplague/ZEventAggregator</a></p>
+</div>
+                <div class="pb-6 pt-6 text-sm text-gray-300"><a target="_blank" rel="noopener noreferrer" href="https://github.com/zhadowplague/TheFlow/tree/main/Content/Blog/sourceGeneratedEvents">View on GitHub</a></div></div>
+            <footer><div class=" text-sm font-medium leading-5 divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y"><div class="py-4 xl:py-8"><h2 class="text-xs uppercase tracking-wide text-gray-400">Tags</h2>
+                        <div class="flex flex-wrap "><a class="text-blue-600 hover:text-blue-400 mr-3 text-sm font-medium uppercase" href="tags/C#">C#</a><a class="text-blue-600 hover:text-blue-400 mr-3 text-sm font-medium uppercase" href="tags/EventAggregator">EventAggregator</a></div></div></div>
+                <div class="pt-4 xl:pt-8"><a class="text-blue-500 hover:text-blue-400" aria-label="Back to the home" href>← Back to
+                        the home</a></div></footer></div></div></article></main>
+
+        <footer><div class="mt-16 flex flex-col items-center"><div class="mb-2 flex space-x-2 text-sm text-gray-400"><a target="_blank" rel="noopener noreferrer" href="https://github.com/BlazorStatic/BlazorStatic"> Built with Blazor Static</a>
+                    <div>•</div>
+                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/BlazorStatic/BlazorStaticMinimalBlog">using template</a>
+                    <div>•</div>
+                    <div>© 2026</div></div></div></footer></div></div>
+        <blazor-focus-on-navigate selector="h1"></blazor-focus-on-navigate></body></html>
