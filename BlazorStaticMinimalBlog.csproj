@@ -22,6 +22,9 @@
   <ItemGroup>
     <Watch Include="Content/**/*" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\Blog\media\" />
+  </ItemGroup>
 
 
 </Project>
